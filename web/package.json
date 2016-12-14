@@ -1,7 +1,7 @@
 {
-  "name": "angular2-typescript-gulp",
+  "name": "mpp-app",
   "version": "1.0.0",
-  "description": "Angular2 with TypeScript and Gulp QuickStart",
+  "description": "Spring Boot and Angular2 with TypeScript",
   "scripts": {
     "clean": "gulp clean",
     "compile": "gulp compile",

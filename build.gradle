@@ -4,15 +4,20 @@ buildscript {
 	}
 	repositories {
 		mavenCentral()
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("com.moowork.gradle:gradle-node-plugin:0.13")
 	}
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'com.moowork.node'
 
 jar {
 	baseName = 'mpp-app'
@@ -30,3 +35,11 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+
+node {
+	version = '5.0.0'
+	download = true
+	nodeModulesDir = file("${project.projectDir}/web")
+}
+
+processResources.dependsOn npm_install
