@@ -3,20 +3,8 @@
   "version": "1.0.0",
   "description": "Spring Boot and Angular2 with TypeScript",
   "scripts": {
-    "clean": "gulp clean",
-    "compile": "gulp compile",
-    "build": "gulp build",
-    "start": "concurrent --kill-others \"gulp watch\" \"lite-server\"",
-    "postinstall": "typings install"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kolorobot/angular2-typescript-gulp.git"
-  },
-  "author": "Rafał Borowiec",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/kolorobot/angular2-typescript-gulp/issues"
+    "preinstall": "typings install",
+    "postinstall": "gulp build"
   },
   "dependencies": {
     "@angular/common": "2.0.0",

@@ -30,16 +30,23 @@ repositories {
 	mavenCentral()
 }
 
-
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
 node {
-	version = '5.0.0'
+	version = '6.4.0'
+    npmVersion = '3.10.6'
 	download = true
 	nodeModulesDir = file("${project.projectDir}/web")
 }
 
+task copyStaticContent(type: Copy) {
+    from 'web/build'
+    into 'src/main/resources/web'
+}
+
 processResources.dependsOn npm_install
+copyStaticContent.dependsOn npm_install
+processResources.dependsOn copyStaticContent
